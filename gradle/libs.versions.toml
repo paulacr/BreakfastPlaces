@@ -1,0 +1,5 @@
+[versions]
+androidGradlePlugin = "8.0.2"
+
+[libraries]
+android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }

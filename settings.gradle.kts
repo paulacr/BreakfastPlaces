@@ -1,4 +1,5 @@
 pluginManagement {
+    includeBuild("buildtools")
     repositories {
         gradlePluginPortal()
         google()
@@ -13,4 +14,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "BreakfastPlaces"
-include ':app'
+include(":app")
