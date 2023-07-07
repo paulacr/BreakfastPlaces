@@ -34,14 +34,14 @@ class MainActivity : ComponentActivity() {
     }
 
     @Composable
-    private fun Extracted(openCamera: () -> Unit) {
+    private fun Extracted(openCameraScreen: () -> Unit) {
         BreakfastPlacesTheme {
             // A surface container using the 'background' color from the theme
             Surface(
                 modifier = Modifier.fillMaxSize(),
                 color = MaterialTheme.colors.background
             ) {
-                Greeting("Android", openCamera)
+                Greeting("Android", openCameraScreen)
             }
         }
     }
