@@ -18,14 +18,17 @@ import androidx.navigation.compose.rememberNavController
 import com.paulacr.breakfastplaces.photo.Picture
 import com.paulacr.breakfastplaces.ui.theme.BreakfastPlacesTheme
 
+private const val NAV_ROUTE_START = "start"
+private const val NAV_ROUTE_PICTURE = "picture"
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             val navController = rememberNavController()
-            NavHost(navController = navController, startDestination = "start") {
-                composable("start") { Extracted { navController.navigate("picture") } }
-                composable("picture") { Picture() }
+            NavHost(navController = navController, startDestination = NAV_ROUTE_START) {
+                composable(NAV_ROUTE_START) { Extracted { navController.navigate(NAV_ROUTE_PICTURE) } }
+                composable(NAV_ROUTE_PICTURE) { Picture() }
             }
         }
     }
