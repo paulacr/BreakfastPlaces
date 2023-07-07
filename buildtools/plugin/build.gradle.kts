@@ -32,6 +32,10 @@ gradlePlugin {
         id = "buildtools.androidApp"
         implementationClass = "buildtools.AndroidAppPlugin"
     }
+    val androidLib by plugins.creating {
+        id = "buildtools.androidLib"
+        implementationClass = "buildtools.AndroidLibPlugin"
+    }
 }
 
 // Add a source set for the functional test suite
