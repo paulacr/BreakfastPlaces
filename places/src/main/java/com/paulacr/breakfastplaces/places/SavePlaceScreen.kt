@@ -6,8 +6,8 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
@@ -26,6 +26,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -43,42 +44,27 @@ fun SavePlaceScreen() {
 fun CameraPreviewContainer(
 
 ) {
-    var savePictureState by remember { mutableStateOf(false) }
-    var deletePictureState by remember { mutableStateOf(false) }
-    var addPictureState by remember { mutableStateOf(false) }
 
-    Column(modifier = Modifier.wrapContentSize()) {
+    Column(modifier = Modifier.wrapContentSize(), horizontalAlignment = Alignment.CenterHorizontally) {
         CameraPreviewCard()
         ActionMenu(
             addPictureButton = {
                 ActionButtonIcon(
                     icon = Icons.Filled.Add,
                     contentDescription = "Add picture button"
-                ) {
-                    addPictureState = true
-                    deletePictureState = false
-                    savePictureState = false
-                }
+                ) {}
             },
             deletePictureButton = {
                 ActionButtonIcon(
                     icon = Icons.Filled.Delete,
                     contentDescription = "Add picture button"
-                ) {
-                    addPictureState = false
-                    deletePictureState = true
-                    savePictureState = false
-                }
+                ) {}
             },
             savePictureButton = {
                 ActionButtonIcon(
                     icon = Icons.Filled.Done,
                     contentDescription = "Add picture button"
-                ) {
-                    addPictureState = false
-                    deletePictureState = false
-                    savePictureState = true
-                }
+                ) {}
             }
         )
     }
@@ -87,8 +73,13 @@ fun CameraPreviewContainer(
 @Composable
 fun CameraPreviewCard() {
 
-    Card(Modifier.wrapContentWidth()) {
-        Text(text = "Preview")
+    Card(
+        Modifier
+            .fillMaxWidth()
+            .height(300.dp)
+            .padding(16.dp)
+    ) {
+        Text(text = "Camera preview", modifier = Modifier.background(Color.Green))
     }
 }
 
@@ -101,9 +92,11 @@ fun ActionMenu(
 
     Row(
         Modifier
-            .height(IntrinsicSize.Min)
+            .height(50.dp)
             .wrapContentWidth()
             .background(Color.Magenta)
+            .padding(8.dp),
+        verticalAlignment = Alignment.CenterVertically
     ) {
         deletePictureButton()
         savePictureButton()
@@ -135,15 +128,15 @@ fun PlaceInformationContainer() {
         TextField(value = title, label = "Place name here") {
             title = it
         }
-        TextField(value = description, label = "Describe how was this place") {
+        TextField(value = description, label = "Describe how was this place", modifier = Modifier.height(100.dp)) {
             description = it
         }
     }
 }
 
 @Composable
-fun TextField(value: String, label: String, onValueChange: (String) -> Unit) {
-    TextField(value = value, onValueChange = {
+fun TextField(value: String, label: String, modifier: Modifier = Modifier, onValueChange: (String) -> Unit) {
+    TextField(value = value, modifier = modifier, onValueChange = {
         onValueChange(it)
     },
         label = { Text(label) }
