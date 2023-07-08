@@ -59,4 +59,5 @@ dependencies {
 
     implementation(project(":platform"))
     implementation(project(":photo"))
+    implementation(project(":places"))
 }
