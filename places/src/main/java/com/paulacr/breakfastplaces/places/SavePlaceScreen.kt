@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.CutCornerShape
+import androidx.compose.material.Button
 import androidx.compose.material.Card
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
@@ -40,12 +41,16 @@ fun SavePlaceScreen() {
         PlaceInformationContainer()
     }
 }
+
 @Composable
 fun CameraPreviewContainer(
 
 ) {
 
-    Column(modifier = Modifier.wrapContentSize(), horizontalAlignment = Alignment.CenterHorizontally) {
+    Column(
+        modifier = Modifier.wrapContentSize(),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
         CameraPreviewCard()
         ActionMenu(
             addPictureButton = {
@@ -125,22 +130,39 @@ fun PlaceInformationContainer() {
     var description by remember { mutableStateOf("") }
 
     Column {
-        TextField(value = title, label = "Place name here") {
-            title = it
-        }
-        TextField(value = description, label = "Describe how was this place", modifier = Modifier.height(100.dp)) {
-            description = it
+        TextField(
+            value = title,
+            onValueChange = {
+                title = it
+            },
+            label = {
+                Text("Place name here")
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(12.dp)
+        )
+        TextField(
+            value = description,
+            onValueChange = {
+                description = it
+            },
+            label = {
+                Text("Describe how was this place")
+            },
+            modifier = Modifier
+                .height(100.dp)
+                .fillMaxWidth()
+                .padding(12.dp)
+        )
+        Button(onClick = {
+
+            // save on database
+
+        }) {
+            Text("Save")
         }
     }
-}
-
-@Composable
-fun TextField(value: String, label: String, modifier: Modifier = Modifier, onValueChange: (String) -> Unit) {
-    TextField(value = value, modifier = modifier, onValueChange = {
-        onValueChange(it)
-    },
-        label = { Text(label) }
-    )
 }
 
 
