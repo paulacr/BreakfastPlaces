@@ -17,3 +17,4 @@ rootProject.name = "BreakfastPlaces"
 include(":app")
 include(":photo")
 include(":platform")
+include(":places")
