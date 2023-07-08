@@ -1,15 +1,15 @@
 package com.paulacr.breakfastplaces.db.di
 
-import com.paulacr.breakfastplaces.db.BreakfastDb
+import com.paulacr.breakfastplaces.boundary.db.BreakfastDb
 import com.paulacr.breakfastplaces.db.BreakfastDbImpl
-import dagger.Binds
 import dagger.Module
+import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 
 @Module
 @InstallIn(SingletonComponent::class)
-abstract class DbModule {
-    @Binds
-    abstract fun bindDb(breakfastDbImpl: BreakfastDbImpl): BreakfastDb
+class DbModule {
+    @Provides
+    fun provideDb(): BreakfastDb = BreakfastDbImpl()
 }

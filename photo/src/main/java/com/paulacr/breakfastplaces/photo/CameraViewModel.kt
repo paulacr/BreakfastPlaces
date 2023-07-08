@@ -1,7 +1,7 @@
 package com.paulacr.breakfastplaces.photo
 
 import androidx.lifecycle.ViewModel
-import com.paulacr.breakfastplaces.db.BreakfastDb
+import com.paulacr.breakfastplaces.boundary.db.BreakfastDb
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
