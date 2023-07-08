@@ -56,4 +56,12 @@ dependencies {
     api("androidx.compose.ui:ui-viewbinding")
     androidTestApi("androidx.compose.ui:ui-test-junit4")
     debugApi("androidx.compose.ui:ui-tooling")
+
+
+    val accompanist_version = "0.31.5-beta"
+    api("com.google.accompanist:accompanist-permissions:$accompanist_version")
+
+    api("com.jakewharton.timber:timber:5.0.1")
+
+    api("io.coil-kt:coil-compose:2.4.0")
 }
