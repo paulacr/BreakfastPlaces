@@ -36,6 +36,14 @@ gradlePlugin {
         id = "buildtools.androidLib"
         implementationClass = "buildtools.AndroidLibPlugin"
     }
+    val androidHilt by plugins.creating {
+        id = "buildtools.androidHilt"
+        implementationClass = "buildtools.AndroidHiltPlugin"
+    }
+    val kotlinLib by plugins.creating {
+        id = "buildtools.kotlinLib"
+        implementationClass = "buildtools.KotlinLibPlugin"
+    }
 }
 
 // Add a source set for the functional test suite

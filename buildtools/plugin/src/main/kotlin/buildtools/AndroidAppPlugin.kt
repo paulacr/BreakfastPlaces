@@ -9,6 +9,8 @@ class AndroidAppPlugin: Plugin<Project> {
             pluginManager.run {
                 apply("com.android.application")
                 apply("org.jetbrains.kotlin.android")
+
+                apply("buildtools.androidHilt")
             }
         }
     }
