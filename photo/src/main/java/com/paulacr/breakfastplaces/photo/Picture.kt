@@ -23,6 +23,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.viewinterop.AndroidViewBinding
+import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.isGranted
@@ -35,7 +36,9 @@ import java.util.concurrent.Executors
 enum class CameraState { PREVIEW, RESULT }
 
 @Composable
-fun Picture() {
+fun Picture(viewModel: CameraViewModel = hiltViewModel()) {
+
+    viewModel.hello()
 
     val (state, stateSetter) = remember { mutableStateOf(CameraState.PREVIEW) }
     val (imageUri, imageUriSetter) = remember { mutableStateOf<Uri?>(null) }

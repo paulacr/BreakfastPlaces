@@ -14,10 +14,12 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.paulacr.breakfastplaces.photo.Picture
 import com.paulacr.breakfastplaces.ui.theme.BreakfastPlacesTheme
+import dagger.hilt.android.AndroidEntryPoint
 
 private const val NAV_ROUTE_START = "start"
 private const val NAV_ROUTE_PICTURE = "picture"
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
